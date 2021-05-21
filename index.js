@@ -7,6 +7,9 @@ const fs = require('fs');
 data = fs.readFileSync('server.json');
 retorno = JSON.parse(data);
 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+
 app.get('/',(req,res)=>{
     res.json(retorno);
 })
